@@ -1,15 +1,15 @@
-# General Physics Experiment Reports
+# University Physics Experiment Reports
 
 ## 仓库名称
 
-General_Physics_Experiment_Reports
+University_Physics_Experiment_Reports
 
 ## 仓库简介
 
-A collection of my general physics experiment reports.
+A collection of my university physics experiment reports.
 
 > Relevant course
-> * General Physics Experiment 2022/2023 (2022/2023年同济大学大学物理实验)
+> * University Physics Experiment 2022/2023 (2022/2023年同济大学大学物理实验)
 
 ## 仓库组成
 
@@ -48,4 +48,4 @@ A collection of my general physics experiment reports.
 
 ## 文档更新日期
 
-2024年1月14日
+2024年1月29日
