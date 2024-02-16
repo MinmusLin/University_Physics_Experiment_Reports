@@ -8,6 +8,8 @@ University_Physics_Experiment_Reports
 
 A collection of my university physics experiment reports.
 
+2022/2023年同济大学大学物理实验报告合集。
+
 > Relevant course
 > * University Physics Experiment 2022/2023 (2022/2023年同济大学大学物理实验)
 
@@ -48,4 +50,4 @@ A collection of my university physics experiment reports.
 
 ## 文档更新日期
 
-2024年1月29日
+2024年2月17日
