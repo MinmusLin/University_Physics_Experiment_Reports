@@ -21,7 +21,7 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Upload files
         run: |
-          mkdir -p ./deployment
+          mkdir -p public
           declare -A file_map=(
             ["E-7_Cathode_Ray_Oscilloscope.pdf"]="e-7.pdf"
             ["E-8_Measurement_of_Speed_of_Sound_in_Air.pdf"]="e-8.pdf"
@@ -37,13 +37,13 @@ jobs:
           )
           for source_path in "${!file_map[@]}"; do
             target_path="${file_map[$source_path]}"
-            mkdir -p "./deployment/$(dirname "$target_path")"
-            cp "$source_path" "./deployment/$target_path"
+            mkdir -p "public/$(dirname "$target_path")"
+            cp "$source_path" "public/$target_path"
           done
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          path: deployment
+          path: public
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
