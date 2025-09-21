@@ -6,15 +6,14 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   deploy-pdf:
     name: Deploy PDF
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -41,7 +40,10 @@ jobs:
             mkdir -p "./deployment/$(dirname "$target_path")"
             cp "$source_path" "./deployment/$target_path"
           done
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          publish_dir: ./deployment
+          path: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
