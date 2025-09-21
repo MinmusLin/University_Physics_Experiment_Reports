@@ -29,7 +29,7 @@ jobs:
             ["O-2_NR_Measurement_of_Lens_Curvature_Radius.pdf"]="o-2.pdf"
             ["O-3_DWG_Wavelength_Measurement.pdf"]="o-3.pdf"
             ["O-4_Michelson_Interferometer.pdf"]="o-4.pdf"
-            ["S-2_Transient_and_Steady_State_Processe"]="s-2.pdf"
+            ["S-2_Transient_and_Steady_State_Processes_of_RC_Series_Circuit.pdf"]="s-2.pdf"
           )
           for source_path in "${!file_map[@]}"; do
             target_path="${file_map[$source_path]}"
