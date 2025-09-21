@@ -1,0 +1,42 @@
+name: Pipeline
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-pdf:
+    name: Deploy PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload files
+        run: |
+          mkdir -p ./deployment
+          declare -A file_map=(
+            ["E-7_Cathode_Ray_Oscilloscope.pdf"]="e-7.pdf"
+            ["E-8_Measurement_of_Speed_of_Sound_in_Air.pdf"]="e-8.pdf"
+            ["E-9_Integrated_Hall_Sensor_Experiment.pdf"]="e-9.pdf"
+            ["M-1_Length_Measurement.pdf"]="m-1.pdf"
+            ["M-3_Measurement_of_Young's_Modulus.pdf"]="m-3.pdf"
+            ["MP-1_Millikan_Oil_Drop_Experiment.pdf"]="mp-1.pdf"
+            ["MP-3_Frank_Hertz_Experiment.pdf"]="mp-3.pdf"
+            ["O-2_NR_Measurement_of_Lens_Curvature_Radius.pdf"]="o-2.pdf"
+            ["O-3_DWG_Wavelength_Measurement.pdf"]="o-3.pdf"
+            ["O-4_Michelson_Interferometer.pdf"]="o-4.pdf"
+            ["S-2_Transient_and_Steady_State_Processe"]="s-2.pdf"
+          )
+          for source_path in "${!file_map[@]}"; do
+            target_path="${file_map[$source_path]}"
+            mkdir -p "./deployment/$(dirname "$target_path")"
+            cp "$source_path" "./deployment/$target_path"
+          done
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          publish_dir: ./deployment
