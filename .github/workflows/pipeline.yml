@@ -41,7 +41,7 @@ jobs:
             cp "$source_path" "public/$target_path"
           done
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v4
         with:
           path: public
       - name: Deploy to GitHub Pages
